@@ -10,6 +10,10 @@ import management.app.services.payment.model.PaymentRequest;
 import management.app.services.payment.model.PaymentResponse;
 import management.app.services.payment.service.PaymentService;
 
+/**
+ * @author Sikandar
+ *
+ */
 @Service
 public class PaymentServiceImpl implements PaymentService {
 
@@ -19,6 +23,8 @@ public class PaymentServiceImpl implements PaymentService {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy, HH:mm");
         String formatDateTime = now.format(formatter);
+        
+        // perform 3rd party payment card/bank
         
 		paymentResponse.setTransactionReference("TRAN-" + RandomStringUtils.randomAlphanumeric(9).toUpperCase());
 		paymentResponse.setTimestamp(formatDateTime);
